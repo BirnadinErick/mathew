@@ -5,9 +5,6 @@ from datastore.sqlite import SqliteStore
 template_file = open('test.html', 'r')
 template = template_file.read()
 
-data_file = open('data.json', 'r')
-data = json.loads(data_file.read())
-
 with SqliteStore('test.data') as data_store:
     data_store.bootstrap()
     data = {k: v for k, v in data_store.get_data()}
