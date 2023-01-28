@@ -1,0 +1,5 @@
+**/__pycache__/
+
+*.html
+data.json
+*.data
