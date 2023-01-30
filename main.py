@@ -2,7 +2,8 @@ import json
 from template_engine import TemplateEngine
 from datastore.sqlite import SqliteStore
 
-template_file = open('test.html', 'r')
+file_name = "C:\\Users\\b\\Desktop\\spc-migrate\\mathew\\templates\\pubs.html"
+template_file = open(file_name, 'r')
 template = template_file.read()
 
 with SqliteStore('test.data') as data_store:
@@ -13,11 +14,11 @@ with SqliteStore('test.data') as data_store:
         key = m.group(1)
         return data[key]
 
-    TE = TemplateEngine()
+    TE = TemplateEngine(
+        templates_dir="C:\\Users\\b\\Desktop\\spc-migrate\\mathew\\templates")
     result = TE.parse(template, get_data)
 
     with open('build.html', 'w') as outfile:
         outfile.write(result)
 
 template_file.close()
-data_file.close()
