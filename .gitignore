@@ -3,3 +3,6 @@
 *.html
 data.json
 *.data
+
+**/templates/
+**/playground/
